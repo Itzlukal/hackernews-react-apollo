@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
+import { BrowserRouter } from 'react-router-dom';
 
 
 // 1
@@ -24,11 +25,13 @@ const client = new ApolloClient({
 });
 
 // 4
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
   <ApolloProvider client={client}>
     <App />
-  </ApolloProvider>,
-  document.getElementById('root')
+  </ApolloProvider>
+  </BrowserRouter>
 );
  
 
